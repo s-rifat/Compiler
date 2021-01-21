@@ -411,7 +411,6 @@ int main()
             i++;
         }
     }
-    fputc('$',p2);
     fclose(p2);
     fclose(p3);
     p3 = fopen("170104026_output_assignment2.txt","r");
