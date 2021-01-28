@@ -16,18 +16,17 @@ int is_keyword(char s[])
 }
 int is_identifier(char s[])
 {
-    int a = 0;
+    int bl = 1;
     if( (s[0]>='a' && s[0]<='z') || (s[0]>='A' && s[0]<='Z') || (s[0]=='_') )
-        a++;
-    if(a!=1)
-        return 0;
+        bl = 0;
+    if(bl)
+       return 0;
     int i;
     for(i=1;i<strlen(s);i++)
     {
         if( (s[i]>='a' && s[i]<='z') || (s[i]>='A' && s[i]<='Z') || (s[i]=='_') || (s[i]>='0' && s[i]<='9') )
-            a++;
-        if(a!=i+1)
-            return 0;
+            continue;
+        return 0;
     }
     return 1;
 }
