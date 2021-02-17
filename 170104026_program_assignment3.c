@@ -155,28 +155,17 @@ void Update2(char s1[], char s2[], char scope[])
 void Update(char s1[], char s2[], char scope[])
 {
     int i1 = Search(s1,scope);
-    int i2 = Search(s2,scope);
-    int k;
-    if(i1!=-1)
-    {
-        for(k = 0;table[i2][5][k]!='\0';k++)
-        {
-            table[i1][5][k] = table[i2][5][k];
-        }
-        table[i1][5][k]  = '\0';
-    }
-    else
-    {
+    if(i1==-1)
         i1 = Search(s1,"global");
-        if(i1 != -1)
-        {
-            for(k = 0;table[i2][5][k]!='\0';k++)
-            {
-                table[i1][5][k] = table[i2][5][k];
-            }
-            table[i1][5][k]  = '\0';
-        }
+    int i2 = Search(s2,scope);
+    if(i2==-1)
+        i2 = Search(s2,"global");
+    int k;
+    for(k = 0;table[i2][5][k]!='\0';k++)
+    {
+        table[i1][5][k] = table[i2][5][k];
     }
+    table[i1][5][k]  = '\0';
 }
 void Delete(int slno)
 {
